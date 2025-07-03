@@ -148,10 +148,22 @@
       padding-left: 20px;
       margin-top: 0;
       margin-bottom: 15px;
+      line-height: 1.5;
     }
 
     .about-section ul li {
       margin-bottom: 6px;
+    }
+
+    .about-section ul ul {
+      padding-left: 20px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      list-style-type: "› ";
+    }
+
+    .about-section ul ul li {
+      margin-bottom: 4px;
     }
 
     /* Container for appointment button inside about sections */
@@ -160,35 +172,23 @@
       text-align: center;
     }
 
-    /* New styles for About Seha content with headshot */
-    .about-seha-content {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    .about-seha-content img.headshot {
-      width: 130px;
-      height: 130px;
+    /* Headshot styling inside About Seha */
+    .headshot {
+      float: right;
+      width: 120px;
+      height: 120px;
+      margin-left: 20px;
+      margin-bottom: 20px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      flex-shrink: 0;
-      margin-left: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
     }
-
-    .about-seha-text {
-      flex: 1;
-      /* keep text left aligned */
-    }
-
   </style>
 </head>
 <body>
   <div class="background">
     <img src="lucid-logo.png" alt="Lucid Logo" class="logo" />
-    <h1>Lucid Danışmanlık<br>ve Koçluk Hizmetleri</h1>
+    <h1>Lucid Mind & Soul<br>Danışmanlık ve Koçluk Hizmetleri</h1>
     <div class="header-buttons">
       <a class="insta-link" href="https://www.instagram.com/lucidmindsoul/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -240,39 +240,40 @@
 
       <div class="about-section" id="about-seha">
         <h2>Seha Şahin Kimdir?</h2>
-        <div class="about-seha-content">
-          <div class="about-seha-text">
-            <p>Merhaba, ben Seha.</p>
-            <p>Hayatım boyunca birçok farklı kimliğe büründüm; farklı ülkelerde, farklı mesleklerde, farklı roller üstlendim. Ama zamanla anladım ki tüm bu yollar beni aslında tek bir yere götürüyor: kendime.</p>
-            <p>Boğaziçi Üniversitesi’nde eğitimimi tamamladıktan sonra kurumsal hayata hızlı bir giriş yaptım. Medya, danışmanlık, yazılım, eğitim gibi alanlarda çalıştım; uluslararası şirketlerde görev aldım, Avustralya’ya taşındım, yedi yıl boyunca orada hayat kurmaya çalıştım. Görünürde "başarı" sayılabilecek pek çok şeye ulaştım. Ama içten içe hep başka bir şeyin eksikliğini hissediyordum.</p>
-            <p>Özellikle yalnızlıkla ve belirsizlikle baş başa kaldığım zamanlarda geçmişimle yüzleştim. Bastırılmış duygularım su yüzüne çıktı. Zor oldu ama beni dönüştüren de bu süreç oldu. İçimde yıllarca görmezden geldiğim parçalarla tanıştım. Kendime dürüstçe bakmayı, kendimle kalmayı ve en önemlisi, kendime şefkat göstermeyi öğrendim.</p>
-            <p>Bu içsel dönüşüm, zamanla başkalarına da alan tutmak, onları da duyulmuş ve görülmüş hissettirmek için içimde bir çağrıya dönüştü. Çünkü fark ettim ki, bir kişi kendini dönüştürdüğünde sadece kendi hayatını değil, çevresindekilerin hayatlarını da etkiliyor.</p>
-            <p>Bu yüzden “Lucid”i kurdum.</p>
-            <p>Bugün kişisel dönüşüm danışmanı olarak, hem eğitimlerim hem de hayat deneyimlerimle harmanladığım bir yaklaşımla danışanlarıma eşlik ediyorum.</p>
-            <p>İstanbul Üniversitesi’nden 120 saatlik Yaşam Koçluğu Sertifikası<br />
-            Boğaziçi Üniversitesi & Yaşam Atölyesi ortaklığıyla 72 saatlik Dönüşümsel Koçluk Programı<br />
-            10 yılı aşkın süredir psikodinamik terapi deneyimi (danışan olarak)<br />
-            İnanç kalıplarını tanıma ve dönüştürme üzerine öz-öğrenim<br />
-            Nörobilim, felsefe ve psikoloji odaklı kaynaklardan beslenen bir yaklaşım<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;› Ellen Langer (Harvard)<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;› ACE Test (CDC)<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;› Lazarus & Folkman’ın baş etme kuramları<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;› Adler psikolojisi, bağlanma kuramı, travma çalışmaları
-            </p>
-            <p>Uygulamalı teknikler: mindfulness, nefes çalışmaları, görselleştirme</p>
-            <p>Tüm bu birikimi, duygusal farkındalıkla yapısal ilerlemeyi bir araya getiren bir yöntemle sunuyorum. Çünkü inanıyorum ki; gerçek dönüşüm, insanın kendine doğru çıktığı yolculukla başlar.</p>
-            <p>Sen de bu yolculukta kendine yaklaşmak istersen, birlikte yürüyebiliriz.</p>
-            <p>Sevgiyle,<br />Seha</p>
-            <div class="about-appointment">
-              <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-                </svg>
-                Öngörüşme randevusu alın
-              </a>
-            </div>
-          </div>
-          <img src="seha-headshot.jpg" alt="Seha Şahin Headshot" class="headshot" />
+        <img src="seha-headshot.jpg" alt="Seha Şahin" class="headshot" />
+        <p>Merhaba, ben Seha.</p>
+        <p>Hayatım boyunca birçok farklı kimliğe büründüm; farklı ülkelerde, farklı mesleklerde, farklı roller üstlendim. Ama zamanla anladım ki tüm bu yollar beni aslında tek bir yere götürüyor: kendime.</p>
+        <p>Boğaziçi Üniversitesi’nde eğitimimi tamamladıktan sonra kurumsal hayata hızlı bir giriş yaptım. Medya, danışmanlık, yazılım, eğitim gibi alanlarda çalıştım; uluslararası şirketlerde görev aldım, Avustralya’ya taşındım, yedi yıl boyunca orada hayat kurmaya çalıştım. Görünürde "başarı" sayılabilecek pek çok şeye ulaştım. Ama içten içe hep başka bir şeyin eksikliğini hissediyordum.</p>
+        <p>Özellikle yalnızlıkla ve belirsizlikle baş başa kaldığım zamanlarda geçmişimle yüzleştim. Bastırılmış duygularım su yüzüne çıktı. Zor oldu ama beni dönüştüren de bu süreç oldu. İçimde yıllarca görmezden geldiğim parçalarla tanıştım. Kendime dürüstçe bakmayı, kendimle kalmayı ve en önemlisi, kendime şefkat göstermeyi öğrendim.</p>
+        <p>Bu içsel dönüşüm, zamanla başkalarına da alan tutmak, onları da duyulmuş ve görülmüş hissettirmek için içimde bir çağrıya dönüştü. Çünkü fark ettim ki, bir kişi kendini dönüştürdüğünde sadece kendi hayatını değil, çevresindekilerin hayatlarını da etkiliyor.</p>
+        <p>Bu yüzden “Lucid”i kurdum.</p>
+        <p>Bugün kişisel dönüşüm danışmanı olarak, hem eğitimlerim hem de hayat deneyimlerimle harmanladığım bir yaklaşımla danışanlarıma eşlik ediyorum.</p>
+        <ul>
+          <li>İstanbul Üniversitesi’nden 120 saatlik Yaşam Koçluğu Sertifikası</li>
+          <li>Boğaziçi Üniversitesi & Yaşam Atölyesi ortaklığıyla 72 saatlik Dönüşümsel Koçluk Programı</li>
+          <li>10 yılı aşkın süredir psikodinamik terapi deneyimi (danışan olarak)</li>
+          <li>İnanç kalıplarını tanıma ve dönüştürme üzerine öz-öğrenim</li>
+          <li>
+            Nörobilim, felsefe ve psikoloji odaklı kaynaklardan beslenen bir yaklaşım
+            <ul>
+              <li>Ellen Langer (Harvard)</li>
+              <li>ACE Test (CDC)</li>
+              <li>Lazarus & Folkman’ın baş etme kuramları</li>
+              <li>Adler psikolojisi, bağlanma kuramı, travma çalışmaları</li>
+            </ul>
+          </li>
+          <li>Uygulamalı teknikler: mindfulness, nefes çalışmaları, görselleştirme</li>
+        </ul>
+        <p>Tüm bu birikimi, duygusal farkındalıkla yapısal ilerlemeyi bir araya getiren bir yöntemle sunuyorum. Çünkü inanıyorum ki; gerçek dönüşüm, insanın kendine doğru çıktığı yolculukla başlar.</p>
+        <p>Sen de bu yolculukta kendine yaklaşmak istersen, birlikte yürüyebiliriz.</p>
+        <p>Sevgiyle,<br />Seha</p>
+        <div class="about-appointment">
+          <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+            </svg>
+            Öngörüşme randevusu alın
+          </a>
         </div>
       </div>
     </div>
