@@ -11,6 +11,7 @@
       height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
+      background-color: #121212; /* fallback background */
     }
 
     .background {
@@ -21,31 +22,27 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
-      box-sizing: border-box;
+      padding: 0 20px;
     }
 
     .logo {
       width: 150px;
       height: 150px;
-      margin-bottom: 10px; /* reduced margin to lift logo */
+      margin-bottom: 40px; /* slightly more space to move it higher */
       border-radius: 50%;
       object-fit: cover;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-
-    .main-text {
-      margin-bottom: 30px; /* space between h1/instagram and about section */
+      align-self: center;
     }
 
     h1 {
       font-size: 3rem;
       margin: 0;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 30px;
     }
 
     .insta-link {
-      margin-top: 30px;
       font-size: 1rem;
       text-decoration: none;
       color: white;
@@ -53,54 +50,60 @@
       padding: 10px 20px;
       border-radius: 8px;
       transition: background 0.3s;
-      display: inline-block;
+      margin-bottom: 40px;
     }
 
     .insta-link:hover {
       background-color: rgba(0, 0, 0, 0.5);
     }
 
-    /* New container for About texts */
     .about-container {
       display: flex;
-      gap: 40px;
-      max-width: 800px;
-      margin-top: 20px;
       justify-content: center;
-      text-align: left;
+      gap: 60px;
+      max-width: 1000px;
       flex-wrap: wrap;
+      color: white;
+      text-align: left;
     }
 
     .about-section {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 20px;
-      border-radius: 10px;
-      flex: 1 1 300px; /* responsive */
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      flex: 1 1 400px;
+      background-color: rgba(0,0,0,0.4);
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
 
     .about-section h2 {
       margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #FF9900;
+      padding-bottom: 8px;
+      font-weight: 700;
     }
 
     .about-section p {
-      margin: 0;
       font-size: 1rem;
-      line-height: 1.4;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      margin: 0 0 15px 0;
+    }
+
+    .about-section p strong {
+      font-weight: 700;
+      color: #FF9900;
     }
   </style>
 </head>
 <body>
   <div class="background">
     <img src="lucid-logo.png" alt="Lucid Logo" class="logo" />
-    <div class="main-text">
-      <h1>Lucid Mind & Soul<br>Yakında Sizlerle</h1>
-      <a class="insta-link" href="https://instagram.com/lucidmindsoul" target="_blank">
-        Bizi Instagram'da Takip Edin →
-      </a>
-    </div>
+    <h1>Lucid Mind & Soul<br>Yakında Sizlerle</h1>
+    <a class="insta-link" href="https://instagram.com/lucidmindsoul" target="_blank">
+      Bizi Instagram'da Takip Edin →
+    </a>
 
     <div class="about-container">
       <div class="about-section">
@@ -110,7 +113,26 @@
 
       <div class="about-section">
         <h2>About Lucid</h2>
-        <p>Lucid Mind & Soul is a coaching platform designed to help individuals unlock their potential and navigate life’s challenges with clarity and purpose.</p>
+        <p>Lucid, her şeyin üst üste geldiği o anlar için kuruldu.</p>
+        <p>Zihninin dağıldığı, göğsünün ağırlaştığı, kendine <strong>“Şu anda kendime nasıl destek olabilirim?”</strong> diye sorduğun o anlar için.</p>
+        <p>Hayatında büyük bir değişimden geçiyor olabilirsin, bir kaybı sindirmeye çalışıyor olabilirsin, işinde ya da özel yaşamında yönünü kaybetmiş olabilirsin… Ya da sadece artık kendinle yeniden bağlantı kurmak istiyor olabilirsin.</p>
+        <p>İşte tam bu noktada buradayız: Düşünmeni, durmanı ve ileriye doğru ilk adımı atmanı desteklemek için.</p>
+        <p>Hem bedeninin hem gelecekteki senin minnet duyacağı bir adım.</p>
+        <p>Lucid olarak inanıyoruz ki kişisel gelişim düz bir yol değil. Bazen açık, net ve keyifli; bazen de belirsiz, zor ve inişli çıkışlı bir yol. Ama o yol orada. Biz yola çıkmaya karar verdiğimizde, her seferinde bizi kendimize biraz daha yaklaştırıyor.</p>
+        <p>Lucid, Seha Sahin’in terapi, koçluk, içsel dönüşüm ve profesyonel yolculuğunda edindiği 10 yılı aşkın deneyimin içinden doğdu.</p>
+        <p>Burada; psikoloji, nörobilim, koçluk teorileri ve ruhsal içgörü gibi alanlardan beslenen bir yaklaşımla, hem bilimsel hem de derinlemesine kişisel bir dönüşüm alanı sunuyoruz.</p>
+        <p>Lucid özellikle şunlar için var:</p>
+        <ul>
+          <li>İçsel dünyasında kaybolmuş hissedenler</li>
+          <li>Yas, tükenmişlik veya kırılma noktalarından geçenler</li>
+          <li>Netlik, özgüven ve yön arayanlar</li>
+          <li>Yaşamını değerleriyle uyumlu bir şekilde yaşamak isteyen profesyoneller</li>
+          <li>Sessizce “Buradan nereye gideceğim?” diye soran herkes için</li>
+        </ul>
+        <p>Amacımız, zihninde dolaşan binlerce düşünce, duygu ve inanç arasında o sisin içinden geçen bağlantıları kurmana yardımcı olmak.</p>
+        <p>Ve seni kendi içsel bilgeliğine, kendi gücüne nazikçe geri götürmek.</p>
+        <p><strong>Eğer bir kıpırtı hissediyorsan, ön görüşme için randevunu al. Nerede olduğunu ve nereye gitmek istediğini konuşalım.</strong></p>
+        <p>Unutma, her şeyi tek başına çözmek zorunda değilsin.</p>
       </div>
     </div>
   </div>
