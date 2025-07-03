@@ -160,18 +160,41 @@
       text-align: center;
     }
 
+    /* New styles for About Seha content with headshot */
+    .about-seha-content {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .about-seha-content img.headshot {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    .about-seha-text {
+      flex: 1;
+      /* keep text left aligned */
+    }
+
   </style>
 </head>
 <body>
   <div class="background">
     <img src="lucid-logo.png" alt="Lucid Logo" class="logo" />
-    <h1>Lucid Mind & Soul<br>Yakında Sizlerle</h1>
+    <h1>Lucid Mind & Soul<br>Danışmanlık ve Koçluk Hizmetleri</h1>
     <div class="header-buttons">
       <a class="insta-link" href="https://www.instagram.com/lucidmindsoul/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5a3.75 3.75 0 0 0 3.75-3.75v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.75-.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
         </svg>
-        Bizi Instagram'da Takip Edin
+        Instagram'da Takip Edin
       </a>
 
       <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
@@ -184,14 +207,14 @@
 
     <div class="about-container">
       <div class="about-section" id="about-lucid">
-        <h2>About Lucid</h2>
+        <h2>Lucid ile Yolculuk</h2>
         <p>Lucid, her şeyin üst üste geldiği o anlar için kuruldu.</p>
         <p>Zihninin dağıldığı, göğsünün ağırlaştığı, kendine <strong>“Şu anda kendime nasıl destek olabilirim?”</strong> diye sorduğun o anlar için.</p>
         <p>Hayatında büyük bir değişimden geçiyor olabilirsin, bir kaybı sindirmeye çalışıyor olabilirsin, işinde ya da özel yaşamında yönünü kaybetmiş olabilirsin… Ya da sadece artık kendinle yeniden bağlantı kurmak istiyor olabilirsin.</p>
         <p>İşte tam bu noktada buradayız: Düşünmeni, durmanı ve ileriye doğru ilk adımı atmanı desteklemek için.</p>
         <p>Hem bedeninin hem gelecekteki senin minnet duyacağı bir adım.</p>
         <p>Lucid olarak inanıyoruz ki kişisel gelişim düz bir yol değil. Bazen açık, net ve keyifli; bazen de belirsiz, zor ve inişli çıkışlı bir yol. Ama o yol orada. Biz yola çıkmaya karar verdiğimizde, her seferinde bizi kendimize biraz daha yaklaştırıyor.</p>
-        <p>Lucid, Seha Sahin’in terapi, koçluk, içsel dönüşüm ve profesyonel yolculuğunda edindiği 10 yılı aşkın deneyimin içinden doğdu.</p>
+        <p>Lucid, Seha Şahin’in terapi, koçluk, içsel dönüşüm ve profesyonel yolculuğunda edindiği 10 yılı aşkın deneyimin içinden doğdu.</p>
         <p>Burada; psikoloji, nörobilim, koçluk teorileri ve ruhsal içgörü gibi alanlardan beslenen bir yaklaşımla, hem bilimsel hem de derinlemesine kişisel bir dönüşüm alanı sunuyoruz.</p>
         <p>Lucid özellikle şunlar için var:</p>
         <ul>
@@ -216,35 +239,40 @@
       </div>
 
       <div class="about-section" id="about-seha">
-        <h2>About Seha</h2>
-        <p>Merhaba, ben Seha.</p>
-        <p>Hayatım boyunca birçok farklı kimliğe büründüm; farklı ülkelerde, farklı mesleklerde, farklı roller üstlendim. Ama zamanla anladım ki tüm bu yollar beni aslında tek bir yere götürüyor: kendime.</p>
-        <p>Boğaziçi Üniversitesi’nde eğitimimi tamamladıktan sonra kurumsal hayata hızlı bir giriş yaptım. Medya, danışmanlık, yazılım, eğitim gibi alanlarda çalıştım; uluslararası şirketlerde görev aldım, Avustralya’ya taşındım, yedi yıl boyunca orada hayat kurmaya çalıştım. Görünürde "başarı" sayılabilecek pek çok şeye ulaştım. Ama içten içe hep başka bir şeyin eksikliğini hissediyordum.</p>
-        <p>Özellikle yalnızlıkla ve belirsizlikle baş başa kaldığım zamanlarda geçmişimle yüzleştim. Bastırılmış duygularım su yüzüne çıktı. Zor oldu ama beni dönüştüren de bu süreç oldu. İçimde yıllarca görmezden geldiğim parçalarla tanıştım. Kendime dürüstçe bakmayı, kendimle kalmayı ve en önemlisi, kendime şefkat göstermeyi öğrendim.</p>
-        <p>Bu içsel dönüşüm, zamanla başkalarına da alan tutmak, onları da duyulmuş ve görülmüş hissettirmek için içimde bir çağrıya dönüştü. Çünkü fark ettim ki, bir kişi kendini dönüştürdüğünde sadece kendi hayatını değil, çevresindekilerin hayatlarını da etkiliyor.</p>
-        <p>Bu yüzden “Lucid”i kurdum.</p>
-        <p>Bugün kişisel dönüşüm danışmanı olarak, hem eğitimlerim hem de hayat deneyimlerimle harmanladığım bir yaklaşımla danışanlarıma eşlik ediyorum.</p>
-        <p>İstanbul Üniversitesi’nden 120 saatlik Yaşam Koçluğu Sertifikası<br />
-        Boğaziçi Üniversitesi & Yaşam Atölyesi ortaklığıyla 72 saatlik Dönüşümsel Koçluk Programı<br />
-        10 yılı aşkın süredir psikodinamik terapi deneyimi (danışan olarak)<br />
-        İnanç kalıplarını tanıma ve dönüştürme üzerine öz-öğrenim<br />
-        Nörobilim, felsefe ve psikoloji odaklı kaynaklardan beslenen bir yaklaşım<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;› Ellen Langer (Harvard)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;› ACE Test (CDC)<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;› Lazarus & Folkman’ın baş etme kuramları<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;› Adler psikolojisi, bağlanma kuramı, travma çalışmaları
-        </p>
-        <p>Uygulamalı teknikler: mindfulness, nefes çalışmaları, görselleştirme</p>
-        <p>Tüm bu birikimi, duygusal farkındalıkla yapısal ilerlemeyi bir araya getiren bir yöntemle sunuyorum. Çünkü inanıyorum ki; gerçek dönüşüm, insanın kendine doğru çıktığı yolculukla başlar.</p>
-        <p>Sen de bu yolculukta kendine yaklaşmak istersen, birlikte yürüyebiliriz.</p>
-        <p>Sevgiyle,<br />Seha</p>
-        <div class="about-appointment">
-          <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-            </svg>
-            Öngörüşme randevusu alın
-          </a>
+        <h2>Seha Şahin Kimdir?</h2>
+        <div class="about-seha-content">
+          <div class="about-seha-text">
+            <p>Merhaba, ben Seha.</p>
+            <p>Hayatım boyunca birçok farklı kimliğe büründüm; farklı ülkelerde, farklı mesleklerde, farklı roller üstlendim. Ama zamanla anladım ki tüm bu yollar beni aslında tek bir yere götürüyor: kendime.</p>
+            <p>Boğaziçi Üniversitesi’nde eğitimimi tamamladıktan sonra kurumsal hayata hızlı bir giriş yaptım. Medya, danışmanlık, yazılım, eğitim gibi alanlarda çalıştım; uluslararası şirketlerde görev aldım, Avustralya’ya taşındım, yedi yıl boyunca orada hayat kurmaya çalıştım. Görünürde "başarı" sayılabilecek pek çok şeye ulaştım. Ama içten içe hep başka bir şeyin eksikliğini hissediyordum.</p>
+            <p>Özellikle yalnızlıkla ve belirsizlikle baş başa kaldığım zamanlarda geçmişimle yüzleştim. Bastırılmış duygularım su yüzüne çıktı. Zor oldu ama beni dönüştüren de bu süreç oldu. İçimde yıllarca görmezden geldiğim parçalarla tanıştım. Kendime dürüstçe bakmayı, kendimle kalmayı ve en önemlisi, kendime şefkat göstermeyi öğrendim.</p>
+            <p>Bu içsel dönüşüm, zamanla başkalarına da alan tutmak, onları da duyulmuş ve görülmüş hissettirmek için içimde bir çağrıya dönüştü. Çünkü fark ettim ki, bir kişi kendini dönüştürdüğünde sadece kendi hayatını değil, çevresindekilerin hayatlarını da etkiliyor.</p>
+            <p>Bu yüzden “Lucid”i kurdum.</p>
+            <p>Bugün kişisel dönüşüm danışmanı olarak, hem eğitimlerim hem de hayat deneyimlerimle harmanladığım bir yaklaşımla danışanlarıma eşlik ediyorum.</p>
+            <p>İstanbul Üniversitesi’nden 120 saatlik Yaşam Koçluğu Sertifikası<br />
+            Boğaziçi Üniversitesi & Yaşam Atölyesi ortaklığıyla 72 saatlik Dönüşümsel Koçluk Programı<br />
+            10 yılı aşkın süredir psikodinamik terapi deneyimi (danışan olarak)<br />
+            İnanç kalıplarını tanıma ve dönüştürme üzerine öz-öğrenim<br />
+            Nörobilim, felsefe ve psikoloji odaklı kaynaklardan beslenen bir yaklaşım<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;› Ellen Langer (Harvard)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;› ACE Test (CDC)<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;› Lazarus & Folkman’ın baş etme kuramları<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;› Adler psikolojisi, bağlanma kuramı, travma çalışmaları
+            </p>
+            <p>Uygulamalı teknikler: mindfulness, nefes çalışmaları, görselleştirme</p>
+            <p>Tüm bu birikimi, duygusal farkındalıkla yapısal ilerlemeyi bir araya getiren bir yöntemle sunuyorum. Çünkü inanıyorum ki; gerçek dönüşüm, insanın kendine doğru çıktığı yolculukla başlar.</p>
+            <p>Sen de bu yolculukta kendine yaklaşmak istersen, birlikte yürüyebiliriz.</p>
+            <p>Sevgiyle,<br />Seha</p>
+            <div class="about-appointment">
+              <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+                </svg>
+                Öngörüşme randevusu alın
+              </a>
+            </div>
+          </div>
+          <img src="seha-headshot.jpg" alt="Seha Şahin Headshot" class="headshot" />
         </div>
       </div>
     </div>
