@@ -1,338 +1,320 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucid Mind & Soul</title>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Lucid Mind & Soul</title>
+ <style>
+   body, html {
+     margin: 0;
+     padding: 0;
+     min-height: 100%;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     color: white;
+     background-color: #121212;
+   }
 
-  <!-- Alpine.js (no build step needed) -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
-      background-color: #121212;
-    }
+   .background {
+     background: url('lucid-background.jpg') no-repeat center center/cover;
+     padding: 40px 20px 80px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+   }
 
-    /* Fixed full-viewport video layer */
-    .video-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      background: #000;
-    }
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* iOS sometimes needs inline size hints */
-      max-width: 100%;
-    }
 
-    /* Dark overlay to improve text contrast */
-    .video-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      transition: background-color 250ms ease;
-    }
+   .logo {
+     width: 150px;
+     height: 150px;
+     margin-bottom: 40px;
+     border-radius: 50%;
+     object-fit: cover;
+     box-shadow: 0 0 10px rgba(0,0,0,0.4);
+     align-self: center;
+   }
 
-    .background {
-      /* background removed so video shows */
-      padding: 40px 20px 80px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
 
-    .logo {
-      width: 150px;
-      height: 150px;
-      margin-bottom: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      align-self: center;
-    }
+   h1 {
+     font-size: 3rem;
+     margin: 0 0 10px 0;
+     text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+     max-width: 700px;
+     width: 100%;
+   }
 
-    h1 {
-      font-size: 3rem;
-      margin: 0 0 10px 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-      max-width: 700px;
-      width: 100%;
-    }
 
-    h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-      font-weight: 500;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-    }
+   h2 {
+     margin-top: 0;
+     font-size: 1.5rem;
+     font-weight: 500;
+     text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+   }
 
-    .header-buttons {
-      display: inline-flex;
-      gap: 15px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
 
-    .insta-link {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
-      text-decoration: none;
-      color: white;
-      background-color: #E1306C;
-      padding: 10px 20px;
-      border-radius: 8px;
-      transition: background 0.3s;
-      font-weight: 600;
-    }
+   .header-buttons {
+     display: inline-flex;
+     gap: 15px;
+     margin-bottom: 40px;
+   }
 
-    .insta-link:hover { background-color: #b12558; }
 
-    .insta-link svg {
-      width: 18px;
-      height: 18px;
-      margin-right: 8px;
-      fill: white;
-    }
+   .insta-link {
+     display: inline-flex;
+     align-items: center;
+     font-size: 1rem;
+     text-decoration: none;
+     color: white;
+     background-color: #E1306C;
+     padding: 10px 20px;
+     border-radius: 8px;
+     transition: background 0.3s;
+     font-weight: 600;
+   }
 
-    .appointment-button {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
-      background-color: rgba(255, 153, 0, 0.9);
-      color: #121212;
-      padding: 10px 22px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      gap: 8px;
-      justify-content: center;
-      box-shadow: 0 3px 6px rgba(255, 153, 0, 0.6);
-      user-select: none;
-    }
 
-    .appointment-button:hover { background-color: #cc7a00; }
+   .insta-link:hover {
+     background-color: #b12558;
+   }
 
-    .appointment-button svg {
-      width: 18px;
-      height: 18px;
-      fill: #121212;
-    }
 
-    .about-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      max-width: 700px;
-      width: 100%;
-      color: white;
-      text-align: left;
-      box-sizing: border-box;
-    }
+   .insta-link svg {
+     width: 18px;
+     height: 18px;
+     margin-right: 8px;
+     fill: white;
+   }
 
-    .about-section {
-      background-color: rgba(0,0,0,0.45);
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      width: 100%;
-    }
 
-    .about-section h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #FF9900;
-      padding-bottom: 8px;
-      font-weight: 700;
-    }
+   .appointment-button {
+     display: inline-flex;
+     align-items: center;
+     font-size: 1rem;
+     background-color: rgba(255, 153, 0, 0.9);
+     color: #121212;
+     padding: 10px 22px;
+     border: none;
+     border-radius: 8px;
+     cursor: pointer;
+     font-weight: 700;
+     text-decoration: none;
+     transition: background-color 0.3s;
+     gap: 8px;
+     justify-content: center;
+     box-shadow: 0 3px 6px rgba(255, 153, 0, 0.6);
+     user-select: none;
+   }
 
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.7;
-      white-space: pre-wrap;
-      margin: 0 0 15px 0;
-    }
 
-    .about-section p strong { color: #FF9900; }
+   .appointment-button:hover {
+     background-color: #cc7a00;
+   }
 
-    .about-section ul {
-      padding-left: 20px;
-      margin-top: 0;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    .about-section ul li { margin-bottom: 6px; }
 
-    .about-section ul ul {
-      padding-left: 20px;
-      margin-top: 4px;
-      margin-bottom: 8px;
-      list-style-type: "› ";
-    }
-    .about-section ul ul li { margin-bottom: 4px; }
+   .appointment-button svg {
+     width: 18px;
+     height: 18px;
+     fill: #121212;
+   }
 
-    .about-appointment {
-      margin-top: 20px;
-      text-align: center;
-    }
 
-    .headshot {
-      float: right;
-      width: 120px;
-      height: 120px;
-      margin-left: 20px;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    }
-  </style>
+   .about-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 40px;
+     max-width: 700px;
+     width: 100%;
+     color: white;
+     text-align: left;
+     box-sizing: border-box;
+   }
+
+
+   .about-section {
+     background-color: rgba(0,0,0,0.4);
+     padding: 25px 30px;
+     border-radius: 12px;
+     box-shadow: 0 0 15px rgba(0,0,0,0.3);
+     width: 100%;
+   }
+
+
+   .about-section h2 {
+     margin-top: 0;
+     font-size: 1.8rem;
+     margin-bottom: 20px;
+     border-bottom: 2px solid #FF9900;
+     padding-bottom: 8px;
+     font-weight: 700;
+   }
+
+
+   .about-section p {
+     font-size: 1rem;
+     line-height: 1.7;
+     white-space: pre-wrap;
+     margin: 0 0 15px 0;
+   }
+
+
+   .about-section p strong {
+     font-weight: 700;
+     color: #FF9900;
+   }
+
+
+   .about-section ul {
+     padding-left: 20px;
+     margin-top: 0;
+     margin-bottom: 15px;
+     line-height: 1.5;
+   }
+
+
+   .about-section ul li {
+     margin-bottom: 6px;
+   }
+
+
+   .about-section ul ul {
+     padding-left: 20px;
+     margin-top: 4px;
+     margin-bottom: 8px;
+     list-style-type: "› ";
+   }
+
+
+   .about-section ul ul li {
+     margin-bottom: 4px;
+   }
+
+
+   .about-appointment {
+     margin-top: 20px;
+     text-align: center;
+   }
+
+
+   .headshot {
+     float: right;
+     width: 120px;
+     height: 120px;
+     margin-left: 20px;
+     margin-bottom: 20px;
+     border-radius: 50%;
+     object-fit: cover;
+     box-shadow: 0 0 10px rgba(0,0,0,0.6);
+   }
+ </style>
 </head>
-<body x-data="{ overlay: 0.45 }">
+<body>
+ <div class="background">
+   <img src="lucid-logo.png" alt="Lucid Logo" class="logo" />
+   <h1>Lucid</h1>
+   <h2>Consulting & Coaching</h2>
+   <div class="header-buttons">
+     <a class="insta-link" href="https://www.instagram.com/lucidmindsoul/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+         <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5a3.75 3.75 0 0 0 3.75-3.75v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.75-.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
+       </svg>
+       Instagram'da takip edin
+     </a>
 
-  <!-- Background video (local file) -->
-  <div class="video-bg">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      src="14317226_2160_3840_30fps.mp4"
-      poster="lucid-background.jpg">
-    </video>
-  </div>
 
-  <!-- Adjustable overlay for contrast -->
-  <div class="video-overlay" :style="`background-color: rgba(0,0,0,${overlay})`"></div>
+     <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
+       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+         <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+       </svg>
+       Öngörüşme randevusu alın
+     </a>
+   </div>
 
-  <div class="background">
-    <img src="lucid-logo.png" alt="Lucid Logo" class="logo" />
-    <h1>Lucid</h1>
-    <h2>Consulting & Coaching</h2>
 
-    <div class="header-buttons">
-      <a class="insta-link" href="https://www.instagram.com/lucidmindsoul/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5a3.75 3.75 0 0 0 3.75-3.75v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.75-.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-        </svg>
-        Instagram'da takip edin
-      </a>
-
-      <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-        </svg>
-        Öngörüşme randevusu alın
-      </a>
-    </div>
-
-    <div class="about-container">
-      <div class="about-section" id="about-lucid">
-        <h2>Lucid ile Yolculuk</h2>
-        <p>Lucid, her şeyin üst üste geldiği o anlar için kuruldu.</p>
-        <p>Zihninin dağıldığı, göğsünün ağırlaştığı, kendine <strong>“Şu anda kendime nasıl destek olabilirim?”</strong> diye sorduğun o anlar için.</p>
-        <p>Hayatında büyük bir değişimden geçiyor olabilirsin, bir kaybı sindirmeye çalışıyor olabilirsin, işinde ya da özel yaşamında yönünü kaybetmiş olabilirsin… Ya da sadece artık kendinle yeniden bağlantı kurmak istiyor olabilirsin.</p>
-        <p>İşte tam bu noktada buradayız: Durmana, düşünmene ve ileriye doğru ilk adımı atmana eşlik etmek için.</p>
-        <p>Hem bedeninin hem gelecekteki senin minnet duyacağı bir adım.</p>
-        <p>Lucid olarak inanıyoruz ki dönüşüm düz bir yol değil. Bazen açık, net ve keyifli; bazen de belirsiz, zor ve inişli çıkışlı bir yol. Ama o yol orada. Biz yola çıkmaya karar verdiğimizde, her seferinde bizi kendimize biraz daha yaklaştırıyor.</p>
-        <p>Lucid, Seha Şahin’in terapi, koçluk, içsel dönüşüm ve profesyonel yolculuğunda edindiği 10 yılı aşkın deneyimin içinden doğdu.</p>
-        <p>Burada; psikoloji, nörobilim, koçluk teorileri ve ruhsal içgörü gibi alanlardan beslenen bir yaklaşımla, hem bilimsel hem de derinlemesine kişisel bir dönüşüm alanı sunuyoruz.</p>
-        <p><strong>Kimler için Lucid?</strong></p>
-        <ul>
-          <li>Yeni bir kültürde aidiyet ve kimlik arayışında olan göçmenler & expatlar</li>
+   <div class="about-container">
+     <div class="about-section" id="about-lucid">
+       <h2>Lucid ile Yolculuk</h2>
+       <p>Lucid, her şeyin üst üste geldiği o anlar için kuruldu.</p>
+       <p>Zihninin dağıldığı, göğsünün ağırlaştığı, kendine <strong>“Şu anda kendime nasıl destek olabilirim?”</strong> diye sorduğun o anlar için.</p>
+       <p>Hayatında büyük bir değişimden geçiyor olabilirsin, bir kaybı sindirmeye çalışıyor olabilirsin, işinde ya da özel yaşamında yönünü kaybetmiş olabilirsin… Ya da sadece artık kendinle yeniden bağlantı kurmak istiyor olabilirsin.</p>
+       <p>İşte tam bu noktada buradayız: Durmana, düşünmene ve ileriye doğru ilk adımı atmana eşlik etmek için.</p>
+       <p>Hem bedeninin hem gelecekteki senin minnet duyacağı bir adım.</p>
+       <p>Lucid olarak inanıyoruz ki dönüşüm düz bir yol değil. Bazen açık, net ve keyifli; bazen de belirsiz, zor ve inişli çıkışlı bir yol. Ama o yol orada. Biz yola çıkmaya karar verdiğimizde, her seferinde bizi kendimize biraz daha yaklaştırıyor.</p>
+       <p>Lucid, Seha Şahin’in terapi, koçluk, içsel dönüşüm ve profesyonel yolculuğunda edindiği 10 yılı aşkın deneyimin içinden doğdu.</p>
+       <p>Burada; psikoloji, nörobilim, koçluk teorileri ve ruhsal içgörü gibi alanlardan beslenen bir yaklaşımla, hem bilimsel hem de derinlemesine kişisel bir dönüşüm alanı sunuyoruz.</p>
+       <p><strong>Kimler için Lucid?</strong></p>
+       <ul>
+         <li>Yeni bir kültürde aidiyet ve kimlik arayışında olan göçmenler & expatlar</li>
           <li>Başarılı ama duygusal olarak kopuk hisseden profesyoneller</li>
           <li>Zorlayıcı değişimlerden geçen, yeniden denge kurmak isteyenler</li>
-        </ul>
-        <p><strong>Lucid ne sunuyor?</strong></p>
-        <ul>
-          <li>Hedef odaklı dönüşüm & kariyer</li>
+       </ul>
+       <p><strong>Lucid ne sunuyor?</strong></p>
+       <ul>
+         <li>Hedef odaklı dönüşüm & kariyer</li>
           <li>İletişim ve sosyal beceriler</li>
           <li>İçsel dönüşüm & farkındalık</li>
           <li>Kriz ve değişim</li>
-        </ul>
-        <p><strong>Hangi konularda yol arkadaşlığı edebiliriz?</strong></p>
-        <ul>
-          <li>Yas, tükenmişlik veya kırılma noktalarından geçenler</li>
-          <li>Yaşamını değerleriyle uyumlu bir şekilde yaşamak isteyen profesyoneller</li>
-          <li>Sessizce “Buradan nereye gideceğim?” diye soran herkes için</li>
-        </ul>
-        <p>Amacımız, zihninde dolaşan binlerce düşünce, duygu ve inanç arasında o sisin içinden geçen bağlantıları kurmana yardımcı olmak.</p>
-        <p>Ve seni kendi içsel bilgeliğine, kendi gücüne nazikçe geri götürmek.</p>
-        <p><strong>Eğer bir kıpırtı hissediyorsan, ön görüşme için randevunu al. Nerede olduğunu ve nereye gitmek istediğini konuşalım.</strong></p>
-        <p>Unutma, her şeyi tek başına çözmek zorunda değilsin.</p>
-        <div class="about-appointment">
-          <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-            </svg>
-            Öngörüşme randevusu alın
-          </a>
-        </div>
-      </div>
+       </ul>
+       <p><strong>Hangi konularda yol arkadaşlığı edebiliriz?</strong></p>
+       <ul>
+         <li>Yas, tükenmişlik veya kırılma noktalarından geçenler</li>
+         <li>Yaşamını değerleriyle uyumlu bir şekilde yaşamak isteyen profesyoneller</li>
+         <li>Sessizce “Buradan nereye gideceğim?” diye soran herkes için</li>
+       </ul>
+       <p>Amacımız, zihninde dolaşan binlerce düşünce, duygu ve inanç arasında o sisin içinden geçen bağlantıları kurmana yardımcı olmak.</p>
+       <p>Ve seni kendi içsel bilgeliğine, kendi gücüne nazikçe geri götürmek.</p>
+       <p><strong>Eğer bir kıpırtı hissediyorsan, ön görüşme için randevunu al. Nerede olduğunu ve nereye gitmek istediğini konuşalım.</strong></p>
+       <p>Unutma, her şeyi tek başına çözmek zorunda değilsin.</p>
+       <div class="about-appointment">
+         <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
+           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+             <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+           </svg>
+           Öngörüşme randevusu alın
+         </a>
+       </div>
+     </div>
 
-      <div class="about-section" id="about-seha">
-        <h2>Seha Şahin Kimdir?</h2>
-        <img src="seha-headshot.jpg" alt="Seha Şahin" class="headshot" />
-        <p>Merhaba, ben Seha.</p>
-        <p>Hayatım boyunca birçok farklı kimliğe büründüm; farklı ülkelerde, farklı mesleklerde, farklı roller üstlendim. Ama zamanla anladım ki tüm bu yollar beni aslında tek bir yere götürüyor: kendime.</p>
-        <p>Boğaziçi Üniversitesi’nde eğitimimi tamamladıktan sonra kurumsal hayata hızlı bir giriş yaptım. Medya, danışmanlık, yazılım, eğitim gibi alanlarda çalıştım; uluslararası şirketlerde görev aldım, yurt dışına taşındım, sekiz yıl boyunca uzaklarda hayat kurmaya çalıştım. Bu süreçte hem yeni bir kültürde aidiyet bulmaya çalışan bir göçmen oldum, hem de dışarıdan “başarılı” gözüken ama duygusal olarak kopuk hisseden bir profesyonel. Kağıt üstünde başarılıydım. Ama içten içe hep başka bir şeyin eksikliğini hissediyordum.</p>
-        <p>Özellikle yalnızlıkla ve belirsizlikle baş başa kaldığım zamanlarda geçmişimle yüzleştim. Bastırılmış duygularım su yüzüne çıktı. Zor oldu ama beni dönüştüren de bu süreç oldu. İçimde yıllarca görmezden geldiğim parçalarla tanıştım. Kendime dürüstçe bakmayı, kendimle kalmayı ve en önemlisi, kendime şefkat göstermeyi öğrendim.</p>
-        <p>Bu içsel dönüşüm, zamanla başkalarına da alan tutmak, onları da duyulmuş ve görülmüş hissettirmek için içimde bir çağrıya dönüştü. Çünkü fark ettim ki, bir kişi kendini dönüştürdüğünde sadece kendi hayatını değil, çevresindekilerin hayatlarını da etkiliyor.</p>
-        <p>Bu yüzden “Lucid”i kurdum.</p>
-        <p>Bugün kişisel dönüşüm danışmanı olarak, hem eğitimlerim hem de hayat deneyimlerimle harmanladığım bir yaklaşımla danışanlarıma eşlik ediyorum.</p>
-        <ul>
-          <li>İstanbul Üniversitesi’nden 120 saatlik Yaşam Koçluğu Sertifikası</li>
-          <li>Boğaziçi Üniversitesi & Yaşam Atölyesi ortaklığıyla 72 saatlik Dönüşümsel Koçluk Programı</li>
-          <li>10 yılı aşkın süredir psikodinamik terapi deneyimi (danışan olarak)</li>
-          <li>İnanç kalıplarını tanıma ve dönüştürme üzerine öz-öğrenim</li>
-          <li>
-            Nörobilim, felsefe ve psikoloji odaklı kaynaklardan beslenen bir yaklaşım
-            <ul>
-              <li>Ellen Langer (Harvard)</li>
-              <li>ACE Test (CDC)</li>
-              <li>Lazarus & Folkman’ın baş etme kuramları</li>
-              <li>Adler psikolojisi, bağlanma kuramı, travma çalışmaları</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Tüm bu birikimi, duygusal farkındalıkla yapısal ilerlemeyi bir araya getiren bir yöntemle sunuyorum. Çünkü inanıyorum ki; gerçek dönüşüm, insanın kendine doğru çıktığı yolculukla başlar.</p>
-        <p>Sen de bu yolculukta kendine yaklaşmak istersen, birlikte yürüyebiliriz.</p>
-        <p>Sevgiyle,<br />Seha</p>
-        <div class="about-appointment">
-          <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-            </svg>
-            Öngörüşme randevusu alın
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- (Optional) Try to keep video playing after tab returns -->
-  <script>
-    document.addEventListener('visibilitychange', () => {
-      const v = document.querySelector('video');
-      if (v && !document.hidden) v.play().catch(() => {});
-    });
-  </script>
+     <div class="about-section" id="about-seha">
+       <h2>Seha Şahin Kimdir?</h2>
+       <img src="seha-headshot.jpg" alt="Seha Şahin" class="headshot" />
+       <p>Merhaba, ben Seha.</p>
+       <p>Hayatım boyunca birçok farklı kimliğe büründüm; farklı ülkelerde, farklı mesleklerde, farklı roller üstlendim. Ama zamanla anladım ki tüm bu yollar beni aslında tek bir yere götürüyor: kendime.</p>
+       <p>Boğaziçi Üniversitesi’nde eğitimimi tamamladıktan sonra kurumsal hayata hızlı bir giriş yaptım. Medya, danışmanlık, yazılım, eğitim gibi alanlarda çalıştım; uluslararası şirketlerde görev aldım, yurt dışına taşındım, sekiz yıl boyunca uzaklarda hayat kurmaya çalıştım. Bu süreçte hem yeni bir kültürde aidiyet bulmaya çalışan bir göçmen oldum, hem de dışarıdan “başarılı” gözüken ama duygusal olarak kopuk hisseden bir profesyonel. Kağıt üstünde başarılıydım. Ama içten içe hep başka bir şeyin eksikliğini hissediyordum.</p>
+       <p>Özellikle yalnızlıkla ve belirsizlikle baş başa kaldığım zamanlarda geçmişimle yüzleştim. Bastırılmış duygularım su yüzüne çıktı. Zor oldu ama beni dönüştüren de bu süreç oldu. İçimde yıllarca görmezden geldiğim parçalarla tanıştım. Kendime dürüstçe bakmayı, kendimle kalmayı ve en önemlisi, kendime şefkat göstermeyi öğrendim.</p>
+       <p>Bu içsel dönüşüm, zamanla başkalarına da alan tutmak, onları da duyulmuş ve görülmüş hissettirmek için içimde bir çağrıya dönüştü. Çünkü fark ettim ki, bir kişi kendini dönüştürdüğünde sadece kendi hayatını değil, çevresindekilerin hayatlarını da etkiliyor.</p>
+       <p>Bu yüzden “Lucid”i kurdum.</p>
+       <p>Bugün kişisel dönüşüm danışmanı olarak, hem eğitimlerim hem de hayat deneyimlerimle harmanladığım bir yaklaşımla danışanlarıma eşlik ediyorum.</p>
+       <ul>
+         <li>İstanbul Üniversitesi’nden 120 saatlik Yaşam Koçluğu Sertifikası</li>
+         <li>Boğaziçi Üniversitesi & Yaşam Atölyesi ortaklığıyla 72 saatlik Dönüşümsel Koçluk Programı</li>
+         <li>10 yılı aşkın süredir psikodinamik terapi deneyimi (danışan olarak)</li>
+         <li>İnanç kalıplarını tanıma ve dönüştürme üzerine öz-öğrenim</li>
+         <li>
+           Nörobilim, felsefe ve psikoloji odaklı kaynaklardan beslenen bir yaklaşım
+           <ul>
+             <li>Ellen Langer (Harvard)</li>
+             <li>ACE Test (CDC)</li>
+             <li>Lazarus & Folkman’ın baş etme kuramları</li>
+             <li>Adler psikolojisi, bağlanma kuramı, travma çalışmaları</li>
+           </ul>
+         </li>
+       </ul>
+       <p>Tüm bu birikimi, duygusal farkındalıkla yapısal ilerlemeyi bir araya getiren bir yöntemle sunuyorum. Çünkü inanıyorum ki; gerçek dönüşüm, insanın kendine doğru çıktığı yolculukla başlar.</p>
+       <p>Sen de bu yolculukta kendine yaklaşmak istersen, birlikte yürüyebiliriz.</p>
+       <p>Sevgiyle,<br />Seha</p>
+       <div class="about-appointment">
+         <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
+           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+             <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
+           </svg>
+           Öngörüşme randevusu alın
+         </a>
+       </div>
+     </div>
+   </div>
+ </div>
 </body>
 </html>
