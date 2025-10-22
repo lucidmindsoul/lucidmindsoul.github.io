@@ -11,10 +11,11 @@
       min-height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: white;
-      background-color: #121212;
+      overflow-x: hidden;
+      background-color: #000;
     }
 
-    /* === Video Background === */
+    /* === Background Video === */
     .video-background {
       position: fixed;
       top: 0;
@@ -26,213 +27,132 @@
     }
 
     .video-background video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.4);
+      filter: brightness(0.45);
     }
 
-    /* === Main Page Layout === */
-    .background {
+    /* === Overlay Content === */
+    .content {
       position: relative;
-      padding: 40px 20px 80px;
+      z-index: 1;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      z-index: 1;
+      padding: 40px 20px;
+      box-sizing: border-box;
     }
 
     .logo {
       width: 150px;
       height: 150px;
-      margin-bottom: 40px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      align-self: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      margin-bottom: 30px;
     }
 
     h1 {
       font-size: 3rem;
-      margin: 0 0 10px 0;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-      max-width: 700px;
-      width: 100%;
+      margin: 0;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
 
     h2 {
-      margin-top: 0;
       font-size: 1.5rem;
-      font-weight: 500;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+      font-weight: 400;
+      margin: 10px 0 40px 0;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
     }
 
-    .header-buttons {
-      display: inline-flex;
+    /* === Buttons === */
+    .buttons {
+      display: flex;
       gap: 15px;
-      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .insta-link, .appointment-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.4);
     }
 
     .insta-link {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
-      text-decoration: none;
-      color: white;
       background-color: #E1306C;
-      padding: 10px 20px;
-      border-radius: 8px;
-      transition: background 0.3s;
-      font-weight: 600;
+      color: #fff;
     }
 
     .insta-link:hover {
       background-color: #b12558;
     }
 
-    .insta-link svg {
-      width: 18px;
-      height: 18px;
-      margin-right: 8px;
-      fill: white;
-    }
-
     .appointment-button {
-      display: inline-flex;
-      align-items: center;
-      font-size: 1rem;
       background-color: rgba(255, 153, 0, 0.9);
       color: #121212;
-      padding: 10px 22px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
       font-weight: 700;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      gap: 8px;
-      justify-content: center;
       box-shadow: 0 3px 6px rgba(255, 153, 0, 0.6);
-      user-select: none;
     }
 
     .appointment-button:hover {
       background-color: #cc7a00;
     }
 
-    .appointment-button svg {
+    .insta-link svg, .appointment-button svg {
       width: 18px;
       height: 18px;
-      fill: #121212;
+      fill: currentColor;
     }
 
-    .about-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 40px;
-      max-width: 700px;
-      width: 100%;
-      color: white;
-      text-align: left;
-      box-sizing: border-box;
-    }
-
-    .about-section {
-      background-color: rgba(0,0,0,0.5);
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      width: 100%;
-    }
-
-    .about-section h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #FF9900;
-      padding-bottom: 8px;
-      font-weight: 700;
-    }
-
-    .about-section p {
-      font-size: 1rem;
-      line-height: 1.7;
-      white-space: pre-wrap;
-      margin: 0 0 15px 0;
-    }
-
-    .about-section p strong {
-      font-weight: 700;
-      color: #FF9900;
-    }
-
-    .about-section ul {
-      padding-left: 20px;
-      margin-top: 0;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-
-    .about-section ul li {
-      margin-bottom: 6px;
-    }
-
-    .about-section ul ul {
-      padding-left: 20px;
-      margin-top: 4px;
-      margin-bottom: 8px;
-      list-style-type: "› ";
-    }
-
-    .about-section ul ul li {
-      margin-bottom: 4px;
-    }
-
-    .about-appointment {
-      margin-top: 20px;
+    /* === Footer === */
+    footer {
       text-align: center;
-    }
-
-    .headshot {
-      float: right;
-      width: 120px;
-      height: 120px;
-      margin-left: 20px;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      color: #bbb;
+      font-size: 0.9rem;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
-  <!-- Video Background -->
+
+  <!-- Background Video -->
   <div class="video-background">
     <video autoplay muted loop playsinline>
-      <source src="https://www.pexels.com/video/scenic-sunset-over-seaside-castle-33713805/" type="video/mp4">
-      Your browser does not support the video tag.
+      <source src="https://videos.pexels.com/video-files/33713805/33713805-hd_1920_1080_30fps.mp4" type="video/mp4">
+      Tarayıcınız video etiketini desteklemiyor.
     </video>
   </div>
 
-  <div class="background">
+  <!-- Content -->
+  <div class="content">
     <img src="lucid-logo.png" alt="Lucid Logo" class="logo" />
-    <h1>Lucid</h1>
+    <h1>Lucid Mind & Soul</h1>
     <h2>Consulting & Coaching</h2>
-    <div class="header-buttons">
-      <a class="insta-link" href="https://www.instagram.com/lucidmindsoul/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5a3.75 3.75 0 0 0 3.75-3.75v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.75-.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-        </svg>
-        Instagram'da takip edin
+
+    <div class="buttons">
+      <a class="insta-link" href="https://www.instagram.com/lucidmindsoul/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5a3.75 3.75 0 0 0 3.75-3.75v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.75-.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+        Instagram'da Takip Edin
       </a>
 
-      <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer" aria-label="Öngörüşme randevusu alın">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/>
-        </svg>
-        Öngörüşme randevusu alın
+      <a class="appointment-button" href="https://docs.google.com/forms/d/1V4TQ3_Ls1HkhjpQCrgO2Ir_R6hX0FOn3sjB7MH02050/edit" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2-8 5-8-5h16zm0 12H4v-9l8 5 8-5v9z"/></svg>
+        Öngörüşme Randevusu Alın
       </a>
     </div>
 
